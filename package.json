@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'Installing GhostScript...' && apt-get update && apt-get install -y ghostscript || true"
+  }
+}
