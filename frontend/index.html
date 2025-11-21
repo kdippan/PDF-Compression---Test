@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Size Reducer - Compress PDF Files Online</title>
+  <meta name="description" content="Compress PDF files online for free. Reduce PDF size up to 90% without losing quality.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+          <path d="M12 28V12H18C20.21 12 22 13.79 22 16C22 18.21 20.21 20 18 20H14V28H12ZM14 18H18C19.1 18 20 17.1 20 16C20 14.9 19.1 14 18 14H14V18Z" fill="white"/>
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0%" stop-color="#667eea"/>
+              <stop offset="100%" stop-color="#764ba2"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>PDF Compressor</span>
+      </div>
+      <p class="tagline">Reduce PDF size up to 90% • Free • Secure</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Upload Section -->
+      <section class="upload-section" id="uploadSection">
+        <div class="upload-area" id="uploadArea">
+          <div class="upload-icon">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="30" stroke="url(#gradient2)" stroke-width="2" stroke-dasharray="4 4"/>
+              <path d="M32 20V44M20 32H44" stroke="url(#gradient2)" stroke-width="3" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="gradient2" x1="0" y1="0" x2="64" y2="64">
+                  <stop offset="0%" stop-color="#667eea"/>
+                  <stop offset="100%" stop-color="#764ba2"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2>Drop PDF files here</h2>
+          <p>or click to browse</p>
+          <input type="file" id="fileInput" accept=".pdf" multiple hidden>
+          <button class="btn-browse" onclick="document.getElementById('fileInput').click()">
+            Browse Files
+          </button>
+          <div class="upload-info">
+            <p>• Up to 3 files • Max 100 MB each</p>
+            <p>• Files deleted after 30 minutes</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Compression Options -->
+      <section class="options-section hidden" id="optionsSection">
+        <h3>Compression Options</h3>
+        
+        <div class="option-card">
+          <label class="radio-label">
+            <input type="radio" name="compressionMode" value="auto" checked>
+            <div class="radio-content">
+              <div class="radio-title">Auto Compression</div>
+              <div class="radio-desc">Best balance between size and quality</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="option-card">
+          <label class="radio-label">
+            <input type="radio" name="compressionMode" value="target">
+            <div class="radio-content">
+              <div class="radio-title">Target Size</div>
+              <div class="radio-desc">Compress to exact file size</div>
+            </div>
+          </label>
+          <div class="target-input hidden" id="targetInput">
+            <input type="number" id="targetSize" placeholder="500" min="10">
+            <span>KB</span>
+          </div>
+        </div>
+
+        <div class="option-card">
+          <label class="radio-label">
+            <input type="radio" name="compressionMode" value="quality">
+            <div class="radio-content">
+              <div class="radio-title">Custom Quality</div>
+              <div class="radio-desc">Choose compression level</div>
+            </div>
+          </label>
+          <div class="quality-select hidden" id="qualitySelect">
+            <select id="qualityLevel">
+              <option value="/screen">Maximum Compression (Screen)</option>
+              <option value="/ebook" selected>Balanced (E-book)</option>
+              <option value="/printer">High Quality (Printer)</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn-compress" id="compressBtn">
+          <span>Compress PDF</span>
+        </button>
+      </section>
+
+      <!-- Files List -->
+      <section class="files-section hidden" id="filesSection">
+        <h3>Your Files</h3>
+        <div id="filesList"></div>
+      </section>
+
+      <!-- Progress -->
+      <section class="progress-section hidden" id="progressSection">
+        <div class="progress-card">
+          <div class="progress-icon">
+            <div class="spinner"></div>
+          </div>
+          <h3 id="progressTitle">Processing...</h3>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <p id="progressText">0%</p>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="results-section hidden" id="resultsSection">
+        <div class="success-icon">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="38" fill="#10b981" opacity="0.1"/>
+            <path d="M25 40L35 50L55 30" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h2>Compression Complete!</h2>
+        <div id="resultsList"></div>
+        <button class="btn-new" onclick="location.reload()">
+          Compress Another File
+        </button>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>All files are processed securely and deleted after 30 minutes</p>
+      <p>Built with ❤️ by <a href="https://dippanbhusal.tech" target="_blank">Dippan Bhusal</a></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
